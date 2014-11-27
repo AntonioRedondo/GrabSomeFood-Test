@@ -1,0 +1,281 @@
+<merge xmlns:android="http://schemas.android.com/apk/res/android" >
+	    
+    <com.sothree.slidinguppanel.SlidingUpPanelLayout
+	    xmlns:sothree="http://schemas.android.com/apk/res-auto"
+	    android:id="@+id/LSliding"
+	    android:layout_width="match_parent"
+	    android:layout_height="match_parent"
+	    android:gravity="top"
+	    android:background="@color/GreyBG"
+	    sothree:panelHeight="65dp"
+	    sothree:shadowHeight="6dp"
+		sothree:fadeColor="@android:color/transparent"
+		sothree:overlay="true"
+		sothree:paralaxOffset="100dp"
+		sothree:dragView="@+id/LTopBar">
+		    
+        <!-- Added just to be able to add padding (marginTop on the SwipeRefreshLayout has no effect) -->
+		<FrameLayout
+			android:id="@+id/LSwipeRefreshFL"
+		    android:layout_width="match_parent"
+		    android:layout_height="match_parent"
+		    android:paddingTop="65dp" >
+
+		    <LinearLayout
+				android:id="@+id/LRestaurantTitle"
+		        android:layout_width="match_parent"
+		        android:layout_height="90dp"
+		        android:orientation="vertical" >
+					
+				    <TextView
+				        android:layout_width="match_parent"
+				        android:layout_height="wrap_content"
+				        android:layout_marginTop="21dp"
+				        android:includeFontPadding="false"
+				        android:gravity="center"
+				        android:text="@string/restaurant"
+				        android:textColor="@color/CardTitle"
+				        android:textSize="30sp"
+				        android:textStyle="bold" />
+					
+				    <TextView
+				        android:layout_width="match_parent"
+				        android:layout_height="wrap_content"
+				        android:includeFontPadding="false"
+				        android:gravity="center"
+				        android:text="menu"
+				        android:textColor="@color/CardTitle"
+				        android:textSize="18sp" />
+			 
+			</LinearLayout>
+	    
+		    <android.support.v4.widget.SwipeRefreshLayout
+			    android:id="@+id/LSwipeRefresh"
+			    android:layout_width="match_parent"
+			    android:layout_height="match_parent" >
+		        
+			    <ListView
+			       android:id="@+id/LVMeals"
+			       android:layout_width="match_parent"
+			       android:layout_height="match_parent"
+			       android:animateLayoutChanges="false"
+				   android:dividerHeight="0dp"
+				   android:divider="@android:color/transparent"
+				   android:listSelector="@android:color/transparent" />
+			 
+			</android.support.v4.widget.SwipeRefreshLayout>
+		 
+		</FrameLayout>
+
+	    <LinearLayout
+	        android:id="@+id/LSlidingContent"
+	        android:layout_width="match_parent"
+	        android:layout_height="match_parent"
+	        android:orientation="vertical"
+	        android:clickable="true"
+	        android:background="@color/RedBG" >
+
+		    <LinearLayout
+		        android:layout_width="match_parent"
+		        android:layout_height="match_parent"
+		       	android:layout_weight="1"
+		       	android:layout_gravity="top"
+		        android:orientation="vertical" >
+				
+			    <TextView
+			        android:id="@+id/TVRestaurantTitle"
+			        android:layout_width="match_parent"
+			        android:layout_height="wrap_content"
+			        android:layout_marginTop="25dp"
+			        android:layout_marginBottom="20dp"
+			        android:layout_marginLeft="25dp"
+			        android:layout_marginRight="25dp"
+		        	android:layout_gravity="bottom"
+				    android:text="@string/restaurant"
+			        android:textColor="@color/white"
+			        android:textSize="30sp"
+			        android:textStyle="bold" />
+				
+			    <TextView
+			        android:id="@+id/TVNoOrders"
+			        android:layout_width="match_parent"
+			        android:layout_height="wrap_content"
+		       		android:layout_weight="1"
+			        android:layout_marginLeft="25dp"
+		        	android:alpha="0.8"
+			        android:text="@string/no_orders"
+			        android:textColor="@color/white"
+			        android:textSize="16sp" />
+			    
+				<com.foodittest.EnhancedListView
+			       android:id="@+id/LVEOrders"
+				    android:layout_width="match_parent"
+				    android:layout_height="match_parent"
+		       	   android:layout_weight="1"
+				   android:layout_marginRight="25dp"
+				   android:layout_marginLeft="25dp"
+			       android:animateLayoutChanges="false"
+				   android:dividerHeight="5dp"
+				   android:divider="@android:color/transparent"
+				   android:listSelector="@android:color/transparent"
+				   android:visibility="gone" />
+	        
+			    <!-- <ListView
+			       android:id="@+id/LVOrders"
+			       android:layout_width="match_parent"
+			       android:layout_height="match_parent"
+		       	   android:layout_weight="1"
+				   android:layout_marginRight="25dp"
+				   android:layout_marginLeft="25dp"
+			       android:animateLayoutChanges="false"
+				   android:dividerHeight="5dp"
+				   android:divider="@android:color/transparent"
+				   android:listSelector="@android:color/transparent"
+				   android:visibility="gone" /> -->
+			
+			    <Button
+			        android:id="@+id/BCheckout"
+			        android:layout_width="match_parent"
+			        android:layout_height="wrap_content"
+		       	    android:layout_weight="0"
+			        android:layout_marginTop="25dp"
+			        android:layout_marginLeft="25dp"
+			        android:layout_marginRight="25dp"
+			        android:paddingTop="1dp"
+			        android:paddingBottom="2dp"
+			        android:paddingLeft="14dp"
+			        android:paddingRight="14dp"
+			        android:background="@drawable/bg_button_checkout"
+			        android:text="@string/checkout"
+			        android:textSize="22sp"
+			        android:textColor="@color/RedTextDark" />
+		    
+		    </LinearLayout>
+
+		    <LinearLayout
+			    android:id="@+id/LTopBar"
+		        android:layout_width="match_parent"
+		        android:layout_height="65dp"
+		       	android:layout_weight="0"
+		       	android:layout_gravity="bottom"
+		       	android:gravity="bottom"
+		       	android:orientation="horizontal"
+		        android:background="@drawable/bg_slidinguppanel" >
+
+			    <ImageView
+			        android:layout_width="35dp"
+			        android:layout_height="35dp"
+		       		android:layout_weight="0"
+			        android:layout_marginLeft="20dp"
+		        	android:layout_gravity="center"
+		        	android:alpha="0.4"
+			        android:src="@drawable/icon_cutlery" />
+				
+			    <TextSwitcher
+			        android:id="@+id/TSOrders"
+			        android:layout_width="match_parent"
+			        android:layout_height="65dp"
+		       		android:layout_weight="1"
+			        android:layout_marginLeft="10dp"
+		        	android:alpha="0.8"
+			        android:text="@string/nothing_yet"
+			        android:textColor="@color/white"
+			        android:textSize="16sp" />
+
+			    <ImageView
+			        android:id="@+id/IVTopBarArrow"
+			        android:layout_width="55dp"
+			        android:layout_height="55dp"
+		       		android:layout_weight="0"
+			        android:layout_marginRight="15dp"
+		        	android:layout_gravity="center"
+		        	android:alpha="0.4"
+			        android:src="@drawable/icon_angle_down" />
+		    
+		    </LinearLayout>
+	    
+	    </LinearLayout>
+	    
+	</com.sothree.slidinguppanel.SlidingUpPanelLayout>
+		    
+	<FrameLayout
+	    android:id="@+id/LLoading"
+	    android:layout_width="match_parent"
+	    android:layout_height="match_parent"
+	    android:background="@color/RedBG" >
+
+        <ImageView
+            android:layout_width="200dp"
+            android:layout_height="79dp"
+            android:layout_marginBottom="90dp"
+		    android:layout_gravity="center"
+            android:src="@drawable/logo_small_crop" />
+		    
+		<FrameLayout
+		    android:id="@+id/LLoadingText"
+		    android:layout_width="match_parent"
+		    android:layout_height="match_parent" >
+		
+		    <ProgressBar
+		        android:id="@+id/PBLoading"
+			    android:layout_width="wrap_content"
+			    android:layout_height="wrap_content"
+			    android:layout_gravity="center"
+			    android:layout_marginTop="50dp"
+			    style="?android:attr/progressBarStyle" />
+		    
+		    <TextView
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+			    android:layout_gravity="center"
+		        android:layout_marginTop="100dp"
+		        android:text="@string/loading"
+		        android:textColor="@color/GreyBG"
+		        android:textSize="16sp" />
+	    
+		</FrameLayout>
+	          
+		<LinearLayout
+		    android:id="@+id/LOopsSmall"
+		    android:layout_width="300dp"
+		    android:layout_height="wrap_content"
+			android:layout_gravity="center"
+			android:layout_marginTop="70dp"
+		    android:orientation="vertical"
+		    android:visibility="gone"
+		    android:gravity="center" >
+			
+		    <TextView
+		        android:id="@+id/TVOopsSmall"
+		        android:layout_width="match_parent"
+		        android:layout_height="wrap_content"
+		        android:padding="20dp"
+		        android:textColor="@color/GreyBG" />
+			
+		    <Button
+		        android:id="@+id/BRetry"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:layout_marginTop="10dp"
+		        android:layout_marginBottom="20dp"
+		        android:paddingTop="1dp"
+		        android:paddingBottom="2dp"
+		        android:paddingLeft="14dp"
+		        android:paddingRight="14dp"
+		        android:background="@color/RedBG2"
+		        android:text="@string/oops_retry"
+		        android:textSize="18sp" />
+		
+		</LinearLayout>
+	    
+	</FrameLayout>
+		    
+	<FrameLayout
+	    android:id="@+id/LShadowNB"
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+		android:layout_gravity="bottom"
+	    android:background="@drawable/gradient_nb"
+	    android:visibility="gone" />
+	
+</merge>

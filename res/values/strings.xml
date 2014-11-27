@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">FOODit Test</string>
+    <string name="user_agent">Apache HTTP Client from Android</string>
+    <string name="google_play_app_site">https://play.google.com/store/apps/details?id=com.foodittest</string>
+    <string name="anim_time">250</string>
+    <string name="restaurant">The Fat Duck</string>
+    <string name="so_timeout">4000</string>
+    <string name="connection_timeout">4000</string>
+    <string name="url_end_point">http://demo3159884.mockable.io/</string>
+    <string name="loading">Loading scrummy plates…</string>
+    <string name="nothing_yet">Hungry? Grab some food!</string>
+    <string name="no_orders">You haven\'t ordered anything yet.</string>
+    <string name="add">Add</string>
+    <string name="remove">x</string>
+    <string name="checkout">Checkout</string>
+    <string name="added">added to your order</string>
+    <string name="plates">Plates</string>
+    <string name="oops_title">Oops!</string>
+    <string name="oops_retry">Retry</string>
+    <string name="oops_no_internet">
+        There is some problem with the Internet connection.
+		\n\nMake sure you have access to the Internet and retry.
+	</string>
+    <string name="oops_http_not_successful_response">
+        FOODit servers replied with a non successful status code (not 200).
+        \n\nAre you connected to a WiFi network but with no Internet access?
+    </string>
+    <string name="oops_timeout">Timeout. FOODit servers did not respond before the waiting time ended.</string>
+    <string name="oops_out_of_memory">Out of memory. It looks like your device doesn\'t have enough memory to store all the map images.</string>
+    <string name="oops_image_not_decoded">It has not been possible to retrieve the image sent by FOODit servers.</string>
+    <string name="oops_bad_json_returned">FOODit servers have returned an incorrect or corrupted JSON file.</string>
+    <string name="oops_internal_problem">An internal error on the app has happened.</string>
+    <string name="oops_unknown_problem">An unknown problem has happened.</string>
+	<string name="about_title">About</string>
+	<string name="about_text_title">
+		<big><b>FOODit Test</b> v1.0.0</big>
+		\n© 2014 Antonio Redondo
+		\nhttp://antonioredondo.com
+	</string>
+	<string name="about_text">
+		\n\nThis app could be developed to infinity and beyond. Would you like me to help you to make it possible?
+		\n      > hello@antonioredondo.com
+		\n\nChuck Norris approves this application.
+	</string>
+    <string name="about_feedback_text">Write or edit your review</string>
+    <string name="about_feedback_button">FOODit Test on Google Play</string>
+
+</resources>

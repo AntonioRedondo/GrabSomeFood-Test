@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        android:background="@color/RedBG2" >
+
+        <LinearLayout
+    		android:id="@+id/LParent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center"
+            android:orientation="vertical" >
+
+            <ImageView
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginBottom="8dp"
+                android:src="@drawable/logo_app" />
+
+            <TextView
+                android:id="@+id/TVCheckoutTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:maxWidth="450dp"
+                android:selectAllOnFocus="false"
+                android:text="@string/about_text_title"
+            	android:textSize="16sp"
+            	android:textColor="@color/white"
+                android:shadowColor="@color/white"
+                android:shadowDx="1.0"
+                android:shadowDy="1.0"
+                android:shadowRadius="0.0" />
+
+            <TextView
+                android:id="@+id/TVCheckoutText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="25dp"
+                android:layout_marginRight="25dp"
+                android:maxWidth="400dp"
+                android:text="@string/about_text"
+            	android:textSize="16sp"
+            	android:textColor="@color/white" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                android:layout_marginBottom="5dp"
+                android:layout_marginLeft="25dp"
+                android:layout_marginRight="25dp"
+                android:autoLink="none"
+                android:linksClickable="true"
+                android:maxWidth="450dp"
+                android:selectAllOnFocus="false"
+                android:text="@string/about_feedback_text"
+            	android:textColor="@color/white"
+                android:textStyle="bold"
+            	android:textSize="16sp" />
+
+            <Button
+                android:id="@+id/BGooglePlay"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="0dp"
+	            android:layout_marginBottom="40dp"
+                android:paddingBottom="16dp"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp"
+                android:paddingTop="15dp"
+                android:text="@string/about_feedback_button"
+                android:textSize="18sp" />
+        </LinearLayout>
+        
+    </ScrollView>
+		    
+	<FrameLayout
+	    android:id="@+id/LNavigationBar"
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+    	android:layout_gravity="bottom"
+	    android:background="@drawable/gradient_nb"
+	    android:visibility="gone" />
+
+</merge>

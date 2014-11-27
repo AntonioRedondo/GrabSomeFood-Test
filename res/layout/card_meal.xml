@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="25dp"
+    android:paddingRight="25dp"
+    android:paddingLeft="25dp" >
+    
+    <!-- http://android-developers.blogspot.co.uk/2014/10/implementing-material-design-in-your.html -->
+    <!-- https://developer.android.com/training/material/shadows-clipping.html --> 
+	<android.support.v7.widget.CardView
+	    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+	    xmlns:android="http://schemas.android.com/apk/res/android"
+	    android:layout_width="match_parent"
+	    android:layout_height="match_parent"
+	    card_view:cardCornerRadius="5dp"
+	    card_view:cardElevation="4dp"
+	    card_view:cardPreventCornerOverlap="false"
+	    card_view:cardUseCompatPadding="true" >
+		    
+		<LinearLayout
+		    android:layout_width="match_parent"
+		    android:layout_height="wrap_content"
+		    android:orientation="vertical"
+		    android:background="@color/white" >
+			
+			<FrameLayout
+			    android:layout_width="match_parent"
+			    android:layout_height="wrap_content" >
+			
+			    <ImageView
+			        android:id="@+id/IVCardPicture"
+			        android:layout_width="match_parent"
+			        android:layout_height="230dp"
+			        android:layout_gravity="top"
+			        android:gravity="top"
+			        android:scaleType="centerCrop"
+			        android:background="@color/CardImageBG" />
+		
+			    <TextView
+			        android:id="@+id/TVCardPrice"
+			        android:layout_width="wrap_content"
+			        android:layout_height="wrap_content"
+			        android:layout_gravity="top|center"
+			        android:paddingTop="5dp"
+			        android:paddingBottom="5dp"
+			        android:paddingLeft="10dp"
+			        android:paddingRight="10dp"
+			        android:background="@color/CardButton"
+			        android:textSize="22sp"
+			        android:textStyle="bold"
+					android:textColor="@color/white" />
+		
+			    <TextView
+			        android:id="@+id/TVCardTitle"
+			        android:layout_width="match_parent"
+			        android:layout_height="wrap_content"
+			        android:layout_gravity="bottom"
+			        android:paddingTop="15dp"
+			        android:paddingBottom="15dp"
+			        android:paddingLeft="30dp"
+			        android:paddingRight="30dp"
+			        android:gravity="center_horizontal"
+			        android:background="@color/CardTitleBG"
+			        android:textSize="24sp"
+			        android:textStyle="bold"
+					android:textColor="@color/CardTitle" />
+			    
+			</FrameLayout>
+		    
+			<LinearLayout
+			    android:id="@+id/LCardExpand"
+			    android:layout_width="match_parent"
+			    android:layout_height="wrap_content"
+			    android:paddingBottom="15dp"
+			    android:orientation="vertical"
+			    android:gravity="center"
+			    android:background="@drawable/bg_expand"
+	        	android:onClick="onExpandButtonClicked"
+		        android:clickable="true"
+		        android:focusable="false"
+		        android:focusableInTouchMode="false" >
+		
+			    <TextView
+			        android:id="@+id/TVCardText"
+			        android:layout_width="match_parent"
+			        android:layout_height="42dp"
+			        android:layout_marginTop="25dp"
+			        android:layout_marginLeft="30dp"
+			        android:layout_marginRight="30dp"
+			        android:lineSpacingMultiplier="1.2"
+					android:textColor="@color/CardTitle" />
+			
+			    <ImageView
+			        android:id="@+id/IVCardExpand"
+			        android:layout_width="40dp"
+			        android:layout_height="15dp"
+			        android:layout_marginTop="10dp"
+			        android:src="@drawable/expand" />
+			    
+			</LinearLayout>
+					
+		    <Button
+		        android:layout_width="match_parent"
+		        android:layout_height="wrap_content"
+		        android:layout_marginTop="10dp"
+		        android:layout_marginBottom="30dp"
+		        android:layout_marginLeft="30dp"
+		        android:layout_marginRight="30dp"
+		        android:background="@drawable/bg_card_button"
+		        android:paddingTop="1dp"
+		        android:paddingBottom="2dp"
+		        android:paddingLeft="14dp"
+		        android:paddingRight="14dp"
+		        android:text="@string/add"
+		        android:textSize="20sp"
+		        android:onClick="onAddButtonClicked" />
+		
+		</LinearLayout>
+	</android.support.v7.widget.CardView>
+</FrameLayout> 
