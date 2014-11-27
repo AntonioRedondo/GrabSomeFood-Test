@@ -5,20 +5,9 @@ FOODit Test is a proof of concept Android app for FOODit, the new platform to bu
 
 
 
-
-
-
-
-
 <img align="center" src="https://lh4.ggpht.com/9BHS5-tq6GtrxYpiHXwETGoeLY3ojy4zK6cey76koixcOGV_7yCJnmLpwEVwY5odqtQ" width="180px" height="300px" />
 <img align="center" src="https://lh4.ggpht.com/OucAVVLLLv-yDU2JJfRk6wA7Ous1cwuc4YpfzcEyMypyKze4pcXScrSngdgBIqHnCA" width="180px" height="300px" />
 <img align="center" src="https://lh5.ggpht.com/I9LQo-LMh1MMvhYIz4uopvsYUsB2_h6eUCO-QDJl4SGPA7uAjV9pV5y7myMDBG5ni8o" width="180px" height="300px" />
-<img align="center" src="https://lh5.ggpht.com/Z7AsIA_l-Kym513cPCofZ3TkDrqTqsQYL8KBou6zrTr2-qrK2YZaXB7JDgdRhXasZ2A" width="180px" height="300px" />
-
-
-
-
-
 
 
 
