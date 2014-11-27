@@ -3,6 +3,8 @@ FOODit-Test
 
 FOODit Test is a proof of concept Android app for FOODit, the new platform to build super simple technology to get your restaurant on-line and generating new orders in 5 days.
 
+The app is released on Google Play: https://play.google.com/store/apps/details?id=com.foodittest.
+
 
 
 <img align="center" src="https://lh4.ggpht.com/9BHS5-tq6GtrxYpiHXwETGoeLY3ojy4zK6cey76koixcOGV_7yCJnmLpwEVwY5odqtQ" width="180px" height="300px" />
