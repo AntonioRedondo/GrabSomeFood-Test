@@ -18,7 +18,8 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import com.foodittest.EnhancedListView.OnDismissCallback;
+import de.timroes.android.listview.EnhancedListView;
+import de.timroes.android.listview.EnhancedListView.OnDismissCallback;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;

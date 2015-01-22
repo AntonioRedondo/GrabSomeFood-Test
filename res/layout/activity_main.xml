@@ -107,10 +107,10 @@
 			        android:textColor="@color/white"
 			        android:textSize="16sp" />
 			    
-				<com.foodittest.EnhancedListView
+				<de.timroes.android.listview.EnhancedListView
 			       android:id="@+id/LVEOrders"
-				    android:layout_width="match_parent"
-				    android:layout_height="match_parent"
+				   android:layout_width="match_parent"
+				   android:layout_height="match_parent"
 		       	   android:layout_weight="1"
 				   android:layout_marginRight="25dp"
 				   android:layout_marginLeft="25dp"
