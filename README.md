@@ -37,3 +37,7 @@ GrabSomeFood Test makes use of 3rd party libraries to carry out different tasks:
 -  [Android v7 Support Libraries](http://developer.android.com/tools/support-library/features.html#v7-cardview): every card of the menu is implemented using the [CardView](https://developer.android.com/training/material/lists-cards.html#CardView) class found in the Android v7 Support Libraries.
 
 You must include the avobe dependecies once you have imported the project into your IDE. Please check the website of each library for details. However all these libraries can be solved with Gradle and Maven Central, but not all are available with Maven (for some libraries you will have to import the source code to your IDE and add it to your project as an Android library dependency).
+
+## License
+
+GrabSomeFood makes use of the [GNU GPL v3.0](http://choosealicense.com/licenses/gpl-3.0/) license. So remember to make public your project source code when using GrabSomeFood code.
