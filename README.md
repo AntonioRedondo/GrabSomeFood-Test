@@ -21,8 +21,19 @@ The app is released on Google Play: https://play.google.com/store/apps/details?i
 - To refresh the menu you just have to swipe down at the top of the menu list. A spinning arrow will be shown untill the load is completed.
 - GrabSomeFood Test works seamlessly in both portrait and landscape modes. The screen can be rotated even when there is some data load in progress. If the red top bar is extended it will keep extended after rotation.
 - GrabSomeFood Test can run on devices with Android 4.0+. On Android 4.4+ the status bar and the navigation bar are transparent. On Android 5.0+ the Material theme is used.
-- To implement the menu list the new Android 5.0 CardView widget has been used (http://developer.android.com/training/material/lists-cards.html#CardView). The widget and the app will work as long as your device is Android 4.0+.
+- To implement the menu list the new Android 5.0 [CardView](http://developer.android.com/training/material/lists-cards.html#CardView) widget has been used . The widget and the app will work as long as your device is Android 4.0+.
 
 You can check the mock-ups used for the design of the app on https://github.com/FOODit/FOODit-MobileTest.
 
-For more information visit FOODit on Google Play (https://play.google.com/store/apps/developer?id=FOODit) or visit the website http://foodit.com.
+For more information visit FOODit on [Google Play](https://play.google.com/store/apps/developer?id=FOODit) or visit the website http://foodit.com.
+
+## Resolving dependencies
+
+GrabSomeFood Test makes use of 3rd party libraries to carry out different tasks:
+-  [Android Sliding Up Panel](https://github.com/umano/AndroidSlidingUpPanel): used to implement the red sliding down top panel.
+-  [Universal Image Loader](https://github.com/nostra13/Android-Universal-Image-Loader): used to load images from the web in an asyncronous way.
+-  [EnhancedListView](https://github.com/timroes/EnhancedListView): used to implement the deletion of some item from the orders' list by swiping to the right or left on the desired item.
+-  [Android v4 Support Libraries](http://developer.android.com/tools/support-library/features.html#v4): the swipe to reload function is implemted using the [SwipeRefreshLayout](https://developer.android.com/reference/android/support/v4/widget/SwipeRefreshLayout.html) class found in the Android v4 Support Libraries.
+-  [Android v7 Support Libraries](http://developer.android.com/tools/support-library/features.html#v7-cardview): every card of the menu is implemented using the [CardView](https://developer.android.com/training/material/lists-cards.html#CardView) class found in the Android v7 Support Libraries.
+
+You must include the avobe dependecies once you have imported the project into your IDE. Please check the website of each library for details. However all these libraries can be solved with Gradle and Maven Central, but not all are available with Maven (for some libraries you will have to import the source code to your IDE and add it to your project as an Android library dependency).
