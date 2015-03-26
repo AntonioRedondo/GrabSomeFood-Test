@@ -429,7 +429,7 @@ public class ActivityMain extends Activity {
 					mMeals = new String[lenghtArrayY][lenghtArrayX];
 					for (int n=0; n<mMeals.length; ++n) {
 						mMeals[n] = result[n+1];
-						mMealsList.add(mapDataForMealsList(mMeals[n][0], mMeals[n][1], mMeals[n][2], "£" + mMeals[n][3], mMeals[n][4], mMeals[n][5]));
+						mMealsList.add(mapDataForMealsList(mMeals[n][0], mMeals[n][1], mMeals[n][2], "Â£" + mMeals[n][3], mMeals[n][4], mMeals[n][5]));
 					}
 					
 					SQLiteDatabase db = new DbMeals.Helper(ActivityMain.this).getWritableDatabase();
@@ -475,7 +475,7 @@ public class ActivityMain extends Activity {
 				mMeals = new String[lenghtArrayY][lenghtArrayX];
 				for (int n=0; n<mMeals.length; ++n) {
 					mMeals[n] = savedInstanceState.getStringArray(C.mMeals + n);
-					mMealsList.add(mapDataForMealsList(mMeals[n][0], mMeals[n][1], mMeals[n][2], "£" + mMeals[n][3], mMeals[n][4], mMeals[n][5]));
+					mMealsList.add(mapDataForMealsList(mMeals[n][0], mMeals[n][1], mMeals[n][2], "Â£" + mMeals[n][3], mMeals[n][4], mMeals[n][5]));
 				}
 			}
 			mOrders = (List<String[]>) savedInstanceState.getSerializable(C.mOrders);
@@ -494,8 +494,8 @@ public class ActivityMain extends Activity {
 	
 	@Override
 	public void onBackPressed() {
-		if (mLSliding.isPanelExpanded())
-			mLSliding.collapsePanel();
+        if(mLSliding.getPanelState() == SlidingUpPanelLayout.PanelState.EXPANDED)
+            mLSliding.setPanelState(SlidingUpPanelLayout.PanelState.COLLAPSED);
 		else super.onBackPressed();
 	}
 	
@@ -562,7 +562,7 @@ public class ActivityMain extends Activity {
 					do {
 						mOrders.add(new String[] { cursor.getString(0), cursor.getString(1), cursor.getString(2), cursor.getString(3),
 												   cursor.getString(4), cursor.getString(5), cursor.getString(6), cursor.getString(7) });
-						mOrdersList.add(mapDataForOrdersList(cursor.getString(0), cursor.getString(1), cursor.getString(2), "£" + cursor.getString(3),
+						mOrdersList.add(mapDataForOrdersList(cursor.getString(0), cursor.getString(1), cursor.getString(2), "Â£" + cursor.getString(3),
 								   							 cursor.getString(4), cursor.getString(5), cursor.getString(6), cursor.getString(7)));
 					} while (cursor.moveToNext());
 				}
@@ -617,7 +617,7 @@ public class ActivityMain extends Activity {
 						mMeals[position][5] = cursor.getString(5); // tags
 					}
 					mMealsList.add(mapDataForMealsList(cursor.getString(0), cursor.getString(1), cursor.getString(2),
-												"£" + cursor.getString(3), cursor.getString(4), cursor.getString(5)));
+												"Â£" + cursor.getString(3), cursor.getString(4), cursor.getString(5)));
 				} while (cursor.moveToNext());
 				
 				mRS = RequestStatus.CACHED;
@@ -660,7 +660,7 @@ public class ActivityMain extends Activity {
 		
 		mOrders.add(new String[] { mMeals[position][0], mMeals[position][1], mMeals[position][2], mMeals[position][3], 
 								   mMeals[position][4], mMeals[position][5], "1", date });
-		mOrdersList.add(mapDataForOrdersList(mMeals[position][0], mMeals[position][1], mMeals[position][2], "£" + mMeals[position][3],
+		mOrdersList.add(mapDataForOrdersList(mMeals[position][0], mMeals[position][1], mMeals[position][2], "Â£" + mMeals[position][3],
 											 mMeals[position][4], mMeals[position][5], "1", date));
 		updateCountersTV();
 	}
@@ -741,7 +741,7 @@ public class ActivityMain extends Activity {
 		float total = 0;
 		for(String[] s : mOrders)
 			total += Float.valueOf(s[3]);
-		mBCheckout.setText(getString(R.string.checkout) + ": £" + mFormat.format(total));
+		mBCheckout.setText(getString(R.string.checkout) + ": Â£" + mFormat.format(total));
 		mTVNoOrders.setAlpha(0);
 		mTVNoOrders.setVisibility(View.GONE);
 		mLVEOrders.setVisibility(View.VISIBLE);
@@ -814,7 +814,7 @@ public class ActivityMain extends Activity {
 			} else view.setPadding(p, 0, p, p);
 			tag.tvCardTitle.setText(mMeals[position][1]);
 			tag.tvCardText.setText(mMeals[position][2]);
-			tag.tvCardPrice.setText("£" + mMeals[position][3]);
+			tag.tvCardPrice.setText("Â£" + mMeals[position][3]);
 			mIL.displayImage(mMeals[position][4], tag.ivCardPicture, mILOptions);
 			return view;
 		}

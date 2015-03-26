@@ -7,12 +7,12 @@
 	    android:layout_height="match_parent"
 	    android:gravity="top"
 	    android:background="@color/GreyBG"
-	    sothree:panelHeight="65dp"
-	    sothree:shadowHeight="6dp"
-		sothree:fadeColor="@android:color/transparent"
-		sothree:overlay="true"
-		sothree:paralaxOffset="100dp"
-		sothree:dragView="@+id/LTopBar">
+	    sothree:umanoPanelHeight="65dp"
+	    sothree:umanoShadowHeight="6dp"
+		sothree:umanoFadeColor="@android:color/transparent"
+		sothree:umanoOverlay="true"
+		sothree:umanoParalaxOffset="100dp"
+		sothree:umanoDragView="@+id/LTopBar">
 		    
         <!-- Added just to be able to add padding (marginTop on the SwipeRefreshLayout has no effect) -->
 		<FrameLayout
