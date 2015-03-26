@@ -36,8 +36,8 @@ GrabSomeFood Test makes use of 3rd party libraries to carry out different tasks:
 -  [Android v4 Support Libraries](http://developer.android.com/tools/support-library/features.html#v4): the swipe to reload function is implemted using the [SwipeRefreshLayout](https://developer.android.com/reference/android/support/v4/widget/SwipeRefreshLayout.html) class found in the Android v4 Support Libraries.
 -  [Android v7 Support Libraries](http://developer.android.com/tools/support-library/features.html#v7-cardview): every card of the menu is implemented using the [CardView](https://developer.android.com/training/material/lists-cards.html#CardView) class found in the Android v7 Support Libraries.
 
-You must include the avobe dependecies once you have imported the project into your IDE. Please check the website of each library for details. However all these libraries can be solved with Gradle and Maven Central, but not all are available with Maven (for some libraries you will have to import the source code to your IDE and add it to your project as an Android library dependency).
+These all dependencies are already included and configured on the Gradle files.
 
 ## License
 
-GrabSomeFood makes use of the [GNU GPL v3.0](http://choosealicense.com/licenses/gpl-3.0/) license. So remember to make public your project source code when using GrabSomeFood code.
+GrabSomeFood makes use of the [GNU GPL v3.0](http://choosealicense.com/licenses/gpl-3.0/) license. Remember to make public your project source code when using GrabSomeFood code.
