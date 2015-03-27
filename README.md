@@ -1,4 +1,4 @@
-# GrabSomeFood-Test
+# GrabSomeFood Test
 
 <img align="center" src="https://lh4.ggpht.com/9BHS5-tq6GtrxYpiHXwETGoeLY3ojy4zK6cey76koixcOGV_7yCJnmLpwEVwY5odqtQ" width="180px" height="300px" />
 <img align="center" src="https://lh4.ggpht.com/OucAVVLLLv-yDU2JJfRk6wA7Ous1cwuc4YpfzcEyMypyKze4pcXScrSngdgBIqHnCA" width="180px" height="300px" />
@@ -6,7 +6,7 @@
 
 GrabSomeFood Test is a proof of concept Android app for FOODit, the new platform to build super simple technology to get your restaurant on-line and generating new orders in 5 days.
 
-## Download ready to use app
+## Download ready-to-use app
 
 [![App Icon](https://developer.android.com/images/brand/en_generic_rgb_wo_60.png)](https://play.google.com/store/apps/details?id=com.foodittest)
 
@@ -40,4 +40,4 @@ These all dependencies are already included and configured on the Gradle files.
 
 ## License
 
-GrabSomeFood makes use of the [GNU GPL v3.0](http://choosealicense.com/licenses/gpl-3.0/) license. Remember to make public your project source code when using GrabSomeFood code.
+GrabSomeFood Test makes use of the [GNU GPL v3.0](http://choosealicense.com/licenses/gpl-3.0/) license. Remember to make public your project source code when reusing GrabSomeFood Test code.
