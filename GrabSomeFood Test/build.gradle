@@ -20,8 +20,8 @@ android {
         applicationId "com.foodittest"
         minSdkVersion 14
         targetSdkVersion 21
-        versionCode 1
-        versionName "1.0"
+        versionCode 6
+        versionName "1.1.2"
     }
 
     compileOptions {
