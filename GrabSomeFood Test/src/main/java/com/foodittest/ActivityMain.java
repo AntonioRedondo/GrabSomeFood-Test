@@ -20,6 +20,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
 
+import android.view.*;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.message.BasicHttpResponse;
 import org.apache.http.params.HttpConnectionParams;
@@ -56,10 +57,6 @@ import android.os.Bundle;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v4.widget.SwipeRefreshLayout.OnRefreshListener;
 import android.view.animation.Transformation;
-import android.view.Gravity;
-import android.view.View;
-import android.view.ViewConfiguration;
-import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.widget.AbsListView;
 import android.widget.AbsListView.OnScrollListener;
@@ -248,7 +245,7 @@ public class ActivityMain extends Activity {
 			getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN);
 			SlidingUpPanelLayout.LayoutParams lP = (SlidingUpPanelLayout.LayoutParams) ((LinearLayout) findViewById(R.id.LSlidingContent)).getLayoutParams();
 			
-			if (!ViewConfiguration.get(this).hasPermanentMenuKey()
+			if (!ViewConfiguration.get(this).hasPermanentMenuKey() && !KeyCharacterMap.deviceHasKey(KeyEvent.KEYCODE_BACK)
 					&& (orientation == Configuration.ORIENTATION_PORTRAIT || sSW > 560)) {
 				getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION);
 

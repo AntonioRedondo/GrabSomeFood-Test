@@ -19,6 +19,8 @@ import android.content.res.Resources;
 import android.net.Uri;
 import android.os.Build;
 import android.text.util.Linkify;
+import android.view.KeyCharacterMap;
+import android.view.KeyEvent;
 import android.view.View;
 import android.view.ViewConfiguration;
 import android.widget.Button;
@@ -44,7 +46,7 @@ public class ActivityCheckout extends Activity {
 			int statusBarHeight = res.getDimensionPixelSize(res.getIdentifier("status_bar_height", "dimen", "android"));
 			int navigationBarHeight = 0;
 			
-			if (!ViewConfiguration.get(this).hasPermanentMenuKey()
+			if (!ViewConfiguration.get(this).hasPermanentMenuKey() && !KeyCharacterMap.deviceHasKey(KeyEvent.KEYCODE_BACK)
 					&& (res.getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT || sSW > 560)) {
 				getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION);
 				navigationBarHeight = res.getDimensionPixelSize(res.getIdentifier("navigation_bar_height", "dimen", "android"));
