@@ -8,7 +8,7 @@
     <string name="restaurant">The Fat Duck</string>
     <string name="so_timeout">4000</string>
     <string name="connection_timeout">4000</string>
-    <string name="url_end_point">http://demo3159884.mockable.io/</string>
+    <string name="url_end_point">http://www.mocky.io/v2/55ec6361066ee78e0b360f1f</string>
     <string name="loading">Loading scrummy plates…</string>
     <string name="nothing_yet">Hungry? Grab some food!</string>
     <string name="no_orders">You haven\'t ordered anything yet.</string>
