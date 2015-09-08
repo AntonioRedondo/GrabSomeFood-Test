@@ -36,11 +36,11 @@
 	<string name="about_title">About</string>
 	<string name="about_text_title">
 		<big><b>GrabSomeFood Test</b> v1.1.3</big>
-		\n© 2014-2015 Antonio Redondo
+		\nhttps://github.com/AntonioRedondo/GrabSomeFood-Test
+		\n\n© 2014-2015 Antonio Redondo
 		\nhttp://antonioredondo.com
 		\n\nPublished under the
 		\nGNU General Public License v3
-		\nhttps://github.com/AntonioRedondo/GrabSomeFood-Test
 	</string>
 	<string name="about_text">
 		\n\nThis app could be developed to infinity and beyond. Would you like me to help you to make it possible?

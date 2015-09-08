@@ -9,8 +9,9 @@
 
 package com.foodittest;
 
-import java.io.IOException;
-import java.io.Serializable;
+import java.io.*;
+import java.net.HttpURLConnection;
+import java.net.URL;
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -76,7 +77,6 @@ public class ActivityMain extends Activity {
 	private int soTimeout, connectionTimeout, statusBarHeight, navigationBarHeight, sWidth, sHeight, orientation, sSW,
 				lenghtArrayY = 20, lenghtArrayX = 6, animDuration = 250;
 	private float sD;
-	private String urlEndPoint;
 	private String[][] mMeals;
 	private List<String[]> mOrders = new ArrayList<String[]>();
 	private List<Map<String, Object>> mMealsList = new ArrayList<Map<String, Object>>(), mOrdersList = new ArrayList<Map<String, Object>>();
@@ -133,7 +133,6 @@ public class ActivityMain extends Activity {
 		
 		soTimeout = Integer.valueOf(getString(R.string.so_timeout));
 		connectionTimeout = Integer.valueOf(getString(R.string.connection_timeout));
-		urlEndPoint = getString(R.string.url_end_point);
 		
 		
 		mLLoading = (FrameLayout) findViewById(R.id.LLoading);
@@ -295,7 +294,8 @@ public class ActivityMain extends Activity {
 				// Any primitive variable set here (or in the parent Activity) will be null after screen rotation.
 				// Non-primitive variables may still work (or not), but it could represent a memory leak. Better use setters
 				return new AsyncTaskLoaderCustomised<String[][]>(ActivityMain.this) {
-					private HttpGet httpGet;
+//					private HttpGet httpGet;
+					private HttpURLConnection urlConnection;
 					private String[][] results;
 					
 					private Integer connectionTimeout;
@@ -326,63 +326,58 @@ public class ActivityMain extends Activity {
 						NetworkInfo activeNetwork = ((ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE)).getActiveNetworkInfo();
 						if (activeNetwork == null || !activeNetwork.isConnected()) {
 							reqString[0][0] = RequestStatus.NO_INTERNET.toString();
-						} else {	
-							AndroidHttpClient httpClient = AndroidHttpClient.newInstance(getString(R.string.user_agent));
-							HttpConnectionParams.setConnectionTimeout(httpClient.getParams(), connectionTimeout);
-							HttpConnectionParams.setSoTimeout(httpClient.getParams(), soTimeout);
-							
-							httpGet = new HttpGet(url);
+						} else {
 							try {
-								BasicHttpResponse httpResponse = (BasicHttpResponse) httpClient.execute(httpGet);
-								
+								urlConnection = (HttpURLConnection) new URL(url).openConnection();
+								urlConnection.setConnectTimeout(connectionTimeout);
+								urlConnection.setReadTimeout(soTimeout);
+
 //								try { // For testing and debugging
 //									Thread.sleep(4000);
 //								} catch (InterruptedException e1) {
 //									e1.printStackTrace();
 //								}
-								
-								int statusCode = httpResponse.getStatusLine().getStatusCode();
+
+								int statusCode = urlConnection.getResponseCode();
 								if (statusCode >= 200 && statusCode < 300) {
-									try {										
-										String entityContent = null;
-										
-										// http://stackoverflow.com/questions/309424/read-convert-an-inputstream-to-a-string
-										@SuppressWarnings("resource")
-										Scanner s = new Scanner(httpResponse.getEntity().getContent()).useDelimiter("\\A");
-									    if(s.hasNext())
-									    	entityContent = s.next();
-									    s.close();
-									    
-										JSONArray meals = new JSONObject(entityContent).getJSONArray("meals");
-										JSONObject meal;
-										if (meals != null) {
-											for(int n=1; n<reqString.length; ++n) { // n=0 is reserved for the request status
-												meal = meals.getJSONObject(n-1);
-												reqString[n][0] = meal.getString(C.id);
-												reqString[n][1] = meal.getString(C.name);
-												reqString[n][2] = meal.getString(C.description);
-												reqString[n][3] = meal.getString(C.price);
-												reqString[n][4] = meal.getString(C.primaryImageUrl);
-												reqString[n][5] = meal.getJSONArray(C.tags).toString();
-											}
-											reqString[0][0] = RequestStatus.SUCCESS.toString();
-										} else reqString[0][0] = RequestStatus.BAD_JSON_RETURNED.toString();
-									} catch (JSONException e) {
-										reqString[0][0] = RequestStatus.BAD_JSON_RETURNED.toString();
-										e.printStackTrace();
-									} catch (IllegalStateException e) {
-										reqString[0][0] = RequestStatus.INTERNAL_PROBLEM.toString();
-										e.printStackTrace();
-									}
+									String entityContent = null;
+
+									// http://stackoverflow.com/questions/309424/read-convert-an-inputstream-to-a-string
+									@SuppressWarnings("resource")
+									Scanner s = new Scanner(new BufferedInputStream(urlConnection.getInputStream())).useDelimiter("\\A");
+									if (s.hasNext())
+										entityContent = s.next();
+									s.close();
+
+									JSONArray meals = new JSONObject(entityContent).getJSONArray("meals");
+									JSONObject meal;
+									if (meals != null) {
+										for (int n = 1; n < reqString.length; ++n) { // n=0 is reserved for the request status
+											meal = meals.getJSONObject(n - 1);
+											reqString[n][0] = meal.getString(C.id);
+											reqString[n][1] = meal.getString(C.name);
+											reqString[n][2] = meal.getString(C.description);
+											reqString[n][3] = meal.getString(C.price);
+											reqString[n][4] = meal.getString(C.primaryImageUrl);
+											reqString[n][5] = meal.getJSONArray(C.tags).toString();
+										}
+										reqString[0][0] = RequestStatus.SUCCESS.toString();
+									} else reqString[0][0] = RequestStatus.BAD_JSON_RETURNED.toString();
 								} else reqString[0][0] = RequestStatus.NOT_SUCCESSFUL_HTTP_STATUS_CODE.toString();
-							} catch (IOException e) { // InterruptedIOException (ConnectTimeoutException, SocketTimeoutException), UnknownHostException
+								urlConnection.disconnect();
+							} catch (JSONException e) {
+								reqString[0][0] = RequestStatus.BAD_JSON_RETURNED.toString();
+								e.printStackTrace();
+							} catch (IllegalStateException e) {
+								reqString[0][0] = RequestStatus.INTERNAL_PROBLEM.toString();
+								e.printStackTrace();
+							} catch (IOException e) { // InterruptedIOException (ConnectTimeoutException, SocketTimeoutException), UnknownHostException, MalformedURLException
 								reqString[0][0] = RequestStatus.TIMEOUT.toString();
 								e.printStackTrace();
 							} catch (Exception e) {
 								reqString[0][0] = RequestStatus.INTERNAL_PROBLEM.toString();
 								e.printStackTrace();
 							}
-							httpClient.close();
 						}
 						return reqString;
 					}
@@ -396,9 +391,9 @@ public class ActivityMain extends Activity {
 					
 					@Override
 					protected void onReset() { // Called also after the second time the Activity is destroyed
-						if (httpGet !=null) {
-							httpGet.abort();
-							httpGet = null;
+						if (urlConnection !=null) {
+							urlConnection.disconnect();
+							urlConnection = null;
 						}
 						results = null;
 						
@@ -410,8 +405,10 @@ public class ActivityMain extends Activity {
 					@SuppressLint("NewApi")
 					@Override
 					protected boolean onCancelLoad() { // Called on Loader.cancelLoad()
-						if (httpGet !=null)
-							httpGet.abort();
+						if (urlConnection !=null) {
+							urlConnection.disconnect();
+							urlConnection = null;
+						}
 						if (Build.VERSION.SDK_INT >= 16)
 							return super.onCancelLoad();
 						else return true;
@@ -537,7 +534,7 @@ public class ActivityMain extends Activity {
 		mLLoadingText.setVisibility(View.VISIBLE);
 
 		loading = true;
-		((AsyncTaskLoaderCustomised<Object>) getLoaderManager().getLoader(C.loaderId)).setInputData(connectionTimeout, soTimeout, urlEndPoint);
+		((AsyncTaskLoaderCustomised<Object>) getLoaderManager().getLoader(C.loaderId)).setInputData(connectionTimeout, soTimeout, getString(R.string.url_end_point));
 		getLoaderManager().getLoader(C.loaderId).forceLoad();
 	}
 	
