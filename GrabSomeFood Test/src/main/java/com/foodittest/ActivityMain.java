@@ -244,11 +244,13 @@ public class ActivityMain extends Activity {
 			getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN);
 			SlidingUpPanelLayout.LayoutParams lP = (SlidingUpPanelLayout.LayoutParams) ((LinearLayout) findViewById(R.id.LSlidingContent)).getLayoutParams();
 			
-			if (!ViewConfiguration.get(this).hasPermanentMenuKey() && !KeyCharacterMap.deviceHasKey(KeyEvent.KEYCODE_BACK)
+			if (!ViewConfiguration.get(this).hasPermanentMenuKey() && !KeyCharacterMap.deviceHasKey(KeyEvent.KEYCODE_HOME)
 					&& (orientation == Configuration.ORIENTATION_PORTRAIT || sSW > 560)) {
 				getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION);
 
 				navigationBarHeight = res.getDimensionPixelSize(res.getIdentifier(C.navigation_bar_height, C.dimen, C.android));
+				if (navigationBarHeight == 0)
+					navigationBarHeight = (int) (48*sD);
 				
 				FrameLayout nb = (FrameLayout) findViewById(R.id.LShadowNB);
 				nb.setVisibility(View.VISIBLE); // For SDK_INT 19-20 the bg is a transparent drawable
