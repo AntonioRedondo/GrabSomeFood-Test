@@ -8,8 +8,6 @@ GrabSomeFood Test is a proof of concept Android app for FOODit, the new platform
 
 ## Download ready-to-use app
 
-[![App Icon](https://developer.android.com/images/brand/en_generic_rgb_wo_60.png)](https://play.google.com/store/apps/details?id=com.foodittest)
-
 The app is released on Google Play: https://play.google.com/store/apps/details?id=com.foodittest.
 
 ## Details
