@@ -22,9 +22,6 @@ import java.util.Map;
 import java.util.Scanner;
 
 import android.view.*;
-import org.apache.http.client.methods.HttpGet;
-import org.apache.http.message.BasicHttpResponse;
-import org.apache.http.params.HttpConnectionParams;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -52,7 +49,6 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
-import android.net.http.AndroidHttpClient;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.widget.SwipeRefreshLayout;
@@ -556,7 +552,7 @@ public class ActivityMain extends Activity {
 					new int[] { R.id.TVCardOTitle, R.id.TVCardOPrice, R.id.TVCardOQuantity });
 			mLVEOrders.setAdapter(mSAOrders);
 
-			// -------------------- Retrieveing orders data -------------------- //
+			// -------------------- Retrieving orders data -------------------- //
 			if (!firstTimeDone) {
 				SQLiteDatabase db = new DbOrders.Helper(this).getReadableDatabase();
 				Cursor cursor = db.query(DbOrders.TABLE_NAME,
@@ -603,7 +599,7 @@ public class ActivityMain extends Activity {
 				mTVOopsSmall.setText(getString(R.string.oops_internal_problem));
 			else mTVOopsSmall.setText(getString(R.string.oops_unknown_problem));
 			
-			// -------------------- Retrieveing cached meals data when no connection -------------------- //
+			// -------------------- Retrieving cached meals data when no connection -------------------- //
 			SQLiteDatabase db = new DbMeals.Helper(this).getReadableDatabase();
 			Cursor cursor = db.query(DbMeals.TABLE_NAME,
 								new String[] { DbMeals.ID, DbMeals.NAME, DbMeals.DESCRIPTION, DbMeals.PRICE, DbMeals.IMAGE_URL, DbMeals.TAGS },

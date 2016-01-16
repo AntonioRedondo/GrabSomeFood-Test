@@ -8,7 +8,7 @@
     <string name="restaurant">The Fat Duck</string>
     <string name="so_timeout">4000</string>
     <string name="connection_timeout">4000</string>
-    <string name="url_end_point">http://www.mocky.io/v2/55ec6361066ee78e0b360f1f</string>
+    <string name="url_end_point">https://api.myjson.com/bins/1uj0p</string>
     <string name="loading">Loading scrummy plates…</string>
     <string name="nothing_yet">Hungry? Grab some food!</string>
     <string name="no_orders">You haven\'t ordered anything yet.</string>
@@ -35,9 +35,9 @@
     <string name="oops_unknown_problem">An unknown problem has happened.</string>
 	<string name="about_title">About</string>
 	<string name="about_text_title">
-		<big><b>GrabSomeFood Test</b> v1.1.3</big>
+		<big><b>GrabSomeFood Test</b> v1.1.4</big>
 		\nhttps://github.com/AntonioRedondo/GrabSomeFood-Test
-		\n\n© 2014-2015 Antonio Redondo
+		\n\n© 2014-2016 Antonio Redondo
 		\nhttp://antonioredondo.com
 		\n\nPublished under the
 		\nGNU General Public License v3
